@@ -3,7 +3,7 @@ defmodule CascalhoScrumBoard.UserTest do
 
   alias CascalhoScrumBoard.User
 
-  @valid_attrs %{avatar_url: "some content", bio: "some content", email: "some content", encrypted_password: "some content", first_name: "some content", last_name: "some content"}
+  @valid_attrs %{bio: "some content", email: "tacionery@gmail.com", encrypted_password: "qwert123", first_name: "Tácio", last_name: "Nery"}
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do
