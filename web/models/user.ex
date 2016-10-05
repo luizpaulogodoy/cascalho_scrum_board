@@ -6,6 +6,7 @@ defmodule CascalhoScrumBoard.User do
     field :first_name, :string
     field :last_name, :string
     field :encrypted_password, :string
+    field :password, :string, virtual: true
     field :bio, :string
     field :avatar_url, :string
 
@@ -18,6 +19,9 @@ defmodule CascalhoScrumBoard.User do
   def changeset(struct, params \\ %{}) do
     struct
     |> cast(params, [:email, :first_name, :last_name, :encrypted_password, :bio, :avatar_url])
-    |> validate_required([:email, :first_name, :last_name, :encrypted_password])
+    |> validate_required([:email, :first_name, :last_name, :password])
+    |> validate_length(:password, min: 5)
+    |> validate_format(:email, ~r/@/)
+    |> unique_constraint(:email)
   end
 end
