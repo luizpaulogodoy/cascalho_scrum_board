@@ -8,6 +8,18 @@
   <% end %>
 
   <div form-group>
+    <label>First Name</label>
+    <%= text_input f, :first_name, class: "form_control" %>
+    <%= error_tag f, :first_name %>
+  </div>
+
+  <div form-group>
+    <label>Last Name</label>
+    <%= text_input f, :last_name, class: "form_control" %>
+    <%= error_tag f, :last_name %>
+  </div>
+
+  <div form-group>
     <label>Email</label>
     <%= email_input f, :email, class: "form_control" %>
     <%= error_tag f, :email %>
