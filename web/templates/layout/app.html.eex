@@ -26,6 +26,7 @@
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
 
       <main role="main">
+        <%= link "Sign-up", to: registration_path(@conn, :new) %>
         <%= render @view_module, @view_template, assigns %>
       </main>
 
