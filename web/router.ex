@@ -18,7 +18,7 @@ defmodule CascalhoScrumBoard.Router do
 
     get "/", PageController, :index
 
-    resources "registrations", RegistrationController, only: [:newm, :create]
+    resources "/registrations", RegistrationController, only: [:new, :create]
   end
 
   # Other scopes may use custom stacks.
