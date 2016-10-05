@@ -18,7 +18,13 @@ defmodule CascalhoScrumBoard.Router do
 
     get "/", PageController, :index
 
+    # signup routes
     resources "/registrations", RegistrationController, only: [:new, :create]
+
+    # Login Routes
+    get    "/login",  SessionController, :new
+    post   "/login",  SessionController, :create
+    delete "/logout", SessionController, :delete
   end
 
   # Other scopes may use custom stacks.
