@@ -18,7 +18,7 @@ defmodule CascalhoScrumBoard.User do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:email, :first_name, :last_name, :encrypted_password, :bio, :avatar_url])
+    |> cast(params, [:email, :first_name, :last_name, :encrypted_password, :password, :bio, :avatar_url])
     |> validate_required([:email, :first_name, :last_name, :password])
     |> validate_length(:password, min: 5)
     |> validate_format(:email, ~r/@/)
