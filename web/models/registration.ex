@@ -8,6 +8,6 @@ defmodule CascalhoScrumBoard.Registration do
   end
 
   defp hashed_password(password) do
-    # hash password
+    Comeonin.Bcrypt.hashpwsalt(password)
   end
 end
