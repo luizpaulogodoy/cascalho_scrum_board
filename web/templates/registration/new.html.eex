@@ -1,0 +1,37 @@
+<h1>Criar Conta</h1>
+
+<%= form_for @changeset, registration_path(@conn, :create), fn f -> %>
+  <%= if f.errors != [] do %>
+    <div class="alert alert-danger">
+      <p>Sorry, something went wrong.</p>
+    </div>
+  <% end %>
+
+  <div form-group>
+    <label>First Name</label>
+    <%= text_input f, :first_name, class: "form_control" %>
+    <%= error_tag f, :first_name %>
+  </div>
+
+  <div form-group>
+    <label>Last Name</label>
+    <%= text_input f, :last_name, class: "form_control" %>
+    <%= error_tag f, :last_name %>
+  </div>
+
+  <div form-group>
+    <label>Email</label>
+    <%= email_input f, :email, class: "form_control" %>
+    <%= error_tag f, :email %>
+  </div>
+
+  <div class="form-group">
+    <label>Password</label>
+     <%= password_input f, :password, class: "form-control" %>
+     <%= error_tag f, :password %>
+  </div>
+
+  <div class="form-group">
+    <%= submit "Signup", class: "btn btn-primary" %>
+  </div>
+<% end %>
