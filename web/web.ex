@@ -54,7 +54,7 @@ defmodule CascalhoScrumBoard.Web do
       import CascalhoScrumBoard.Gettext
 
       # Import current_user and logged_in? functions
-      import Blog.Session, only: [current_user: 1, logged_in?: 1]
+      import CascalhoScrumBoard.Session, only: [current_user: 1, logged_in?: 1]
     end
   end
 
