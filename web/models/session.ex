@@ -14,6 +14,8 @@ defmodule CascalhoScrumBoard.Session do
     if id, do: CascalhoScrumBoard.Repo.get(User, id)
   end
 
+  def logged_in?(conn), do: !!current_user(conn)
+
   defp authenticate(user, password) do
     case user do
       nil -> false

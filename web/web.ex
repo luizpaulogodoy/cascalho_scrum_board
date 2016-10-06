@@ -52,6 +52,9 @@ defmodule CascalhoScrumBoard.Web do
       import CascalhoScrumBoard.Router.Helpers
       import CascalhoScrumBoard.ErrorHelpers
       import CascalhoScrumBoard.Gettext
+
+      # Import current_user and logged_in? functions
+      import Blog.Session, only: [current_user: 1, logged_in?: 1]
     end
   end
 
