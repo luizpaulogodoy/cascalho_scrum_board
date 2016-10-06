@@ -9,6 +9,11 @@ defmodule CascalhoScrumBoard.Session do
     end
   end
 
+  def current_user(conn) do
+    id = Plug.Conn.get_session(conn, :current_user)
+    if id, do: CascalhoScrumBoard.Repo.get(User, id)
+  end
+
   defp authenticate(user, password) do
     case user do
       nil -> false
