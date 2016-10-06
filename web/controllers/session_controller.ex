@@ -6,7 +6,7 @@ defmodule CascalhoScrumBoard.SessionController do
   end
 
   def create(conn, %{"session" => session_params}) do
-    case CascalhoScrumBoard.Session.login(session_params, Blog.repo) do
+    case CascalhoScrumBoard.Session.login(session_params, CascalhoScrumBoard.Repo) do
       {:ok, user} ->
         conn
         |> put_session(:current_user, user.id)
