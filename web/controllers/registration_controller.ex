@@ -13,6 +13,7 @@ defmodule CascalhoScrumBoard.RegistrationController do
     case CascalhoScrumBoard.Registration.create(changeset, CascalhoScrumBoard.Repo) do
       {:ok, changeset} ->
         conn
+        |> put_session(:current_user, changeset.id)
         |> put_flash(:info, "Your account has been created.")
         |> redirect(to: "/")
       {:error, changeset} ->
