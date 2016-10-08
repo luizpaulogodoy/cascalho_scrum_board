@@ -10,6 +10,9 @@ defmodule CascalhoScrumBoard.User do
     field :bio, :string
     field :avatar_url, :string
 
+    # associations
+    many_to_many :teams, CascalhoScrumBoard.Team, join_through: "users_teams"
+
     timestamps()
   end
 
