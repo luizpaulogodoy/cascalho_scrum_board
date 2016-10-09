@@ -6,14 +6,15 @@ defmodule CascalhoScrumBoard.AddUserToTeamTest do
   alias CascalhoScrumBoard.Team
 
   test "add user to team" do
-    user = %User{email: "taiconery@gmail.com", first_name: "Tacio", last_name: "Nery", password: "1234567890"}
-            |> Repo.insert! |> Repo.preload(:teams)
+    user = Repo.insert!(%User{email: "taiconery@gmail.com", first_name: "Tacio", last_name: "Nery", password: "1234567890"})
+    team = Repo.insert!(%Team{name: "Team One", slug: "teamone"})
 
-    team = %Team{name: "Team One", slug: "teamone"} |> Repo.insert! |> Repo.preload(:users)
+    user
+    |> Repo.preload(:teams)
+    |> Changeset.change()
+    |> Changeset.put_assoc(:teams, [team])
+    |> Repo.update!
 
-    changeset = Changeset.change(user) |> Changeset.put_assoc(:teams, [team])
-
-    assert user.teams != nil
-    assert team.users != nil
+    assert user.teams != []
   end
 end
